@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>派件</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #result {
+            font-size: 48px;
+            margin: 20px;
+            color: #2c3e50;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>派件</h1>
+        <p></p>
+        <div id="result">3-5</div>
+        <button onclick="generateRandom()">派件码</button>
+    </div>
+
+    <script>
+        function generateRandom() {
+            // 生成1-8的随机数
+            const x1 = Math.floor(Math.random() * 8) + 1;
+            const x2 = Math.floor(Math.random() * 8) + 1;
+            
+            // 组合成x-x格式
+            const result = `${x1}-${x2}`;
+            
+            // 显示结果
+            document.getElementById('result').textContent = result;
+        }
+
+        // 页面加载时自动生成一次
+        window.onload = generateRandom;
+    </script>
+</body>
+</html>
